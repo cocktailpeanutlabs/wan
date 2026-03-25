@@ -10,7 +10,8 @@ module.exports = {
       install: info.running("install.js"),
       start: info.running("start.js"),
       update: info.running("update.js"),
-      reset: info.running("reset.js")
+      reset: info.running("reset.js"),
+      deepy: info.running("deepy.js")
     }
     if (running.install) {
       return [{
@@ -54,11 +55,22 @@ module.exports = {
           text: "Resetting",
           href: "reset.js",
         }]
+      } else if (running.deepy) {
+        return [{
+          default: true,
+          icon: 'fa-solid fa-robot',
+          text: "Deepy Agent",
+          href: "deepy.js",
+        }]
       } else {
         return [{
           icon: "fa-solid fa-power-off",
           text: "Start",
           href: "start.js",
+        }, {
+          icon: "fa-solid fa-robot",
+          text: "Deepy Agent",
+          href: "deepy.js",
         }, {
           icon: "fa-solid fa-power-off",
           text: "Advanced",
