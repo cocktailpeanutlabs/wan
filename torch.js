@@ -20,6 +20,7 @@ module.exports = {
       "when": "{{platform === 'linux'}}",
       "method": "shell.run",
       "params": {
+        "bluefairy": "off",
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
