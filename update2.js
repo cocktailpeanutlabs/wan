@@ -13,7 +13,7 @@ module.exports = {
   }, {
     method: "fs.rm",
     params: {
-      path: "app/env"
+      path: "app/venv"
     }
   }]
 }

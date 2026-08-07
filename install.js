@@ -4,6 +4,13 @@ module.exports = {
   },
   run: [
     {
+      when: "{{exists('app/env')}}",
+      method: "fs.rm",
+      params: {
+        path: "app/env"
+      }
+    },
+    {
       when: "{{!exists('app')}}",
       method: "shell.run",
       params: {
@@ -16,7 +23,7 @@ module.exports = {
         uri: "torch.js",
         params: {
           venv_python: "3.11",
-          venv: "env",
+          venv: "venv",
           path: "app",
           xformers: true
         }
@@ -25,7 +32,7 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        venv: "env",
+        venv: "venv",
         path: "app",
         message: [
           "uv pip install -r requirements.txt --index-strategy unsafe-best-match",
@@ -37,7 +44,7 @@ module.exports = {
       when: "{{platform === 'win32' && gpu === 'amd'}}",
       method: "shell.run",
       params: {
-        venv: "env",
+        venv: "venv",
         path: "app",
         message: "uv pip install numpy==1.26.4"
       }

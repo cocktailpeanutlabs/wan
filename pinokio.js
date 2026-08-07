@@ -5,7 +5,7 @@ module.exports = {
   description: "Super Optimized Gradio UI for AI video creation for GPU poor machines (6GB+ VRAM). Supports Wan 2.1/2.2, Qwen, Hunyuan Video, LTX Video and Flux. https://github.com/deepbeepmeep/Wan2GP",
   icon: "icon.jpg",
   menu: async (kernel, info) => {
-    let installed = info.exists("app/env")
+    let installed = info.exists("app/venv")
     let running = {
       install: info.running("install.js"),
       start: info.running("start.js"),

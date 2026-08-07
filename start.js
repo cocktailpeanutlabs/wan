@@ -9,7 +9,7 @@ module.exports = async (kernel) => {
       {
         method: "shell.run",
         params: {
-          venv: "env",
+          venv: "venv",
           env: {
             SERVER_NAME: "127.0.0.1",
             SERVER_PORT: port
