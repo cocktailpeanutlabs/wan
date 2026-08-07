@@ -1,5 +1,12 @@
 module.exports = {
   run: [{
+    when: "{{gpu === 'nvidia' && gpu_driver && Number.parseFloat(gpu_driver) < 580 && !(kernel.gpu_model && / (10|16)\\d+/.test(kernel.gpu_model))}}",
+    method: "notify",
+    params: {
+      html: "Your NVIDIA driver ({{gpu_driver}}) is too old for CUDA 13. Update to R580 or newer, then run Update again."
+    },
+    next: null
+  }, {
     method: "shell.run",
     params: {
       message: "git pull"
